@@ -1,0 +1,88 @@
+<script runat="server" language="c#">
+    public class Marketo_Auth {
+        public string Access_Token {
+            get;
+            set;
+        }
+        public string Token_Type {
+            get;
+            set;
+        }
+        public int Expires_In {
+            get;
+            set;
+        }
+        public string Scope {
+            get;
+            set;
+        }
+    }
+
+    private string access_token;
+    private string endPoint = "https://099-EMG-811.mktorest.com/";
+
+    protected Object getResponse(string location, string parameters) {
+        try {
+            var request = (System.Net.HttpWebRequest) System.Net.WebRequest.Create(endPoint + location + parameters);
+            request.ContentLength = 0;
+            request.ContentType = "text/xml";
+
+            var response = (System.Net.HttpWebResponse) request.GetResponse();
+
+            var responseValue = string.Empty;
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK) {
+                var message = String.Format("Request failed. Received HTTP {0}", response.StatusCode);
+                throw new ApplicationException(message);
+            }
+
+            // grab the response
+            var responseStream = response.GetResponseStream();
+
+            if (responseStream != null) {
+                var reader = new System.IO.StreamReader(responseStream);
+                responseValue = reader.ReadToEnd(); //This is storing the information in json Format
+            }
+
+            response.Close();
+
+            return responseValue;
+        } catch (Exception ex) {
+            return ex.ToString();
+        }
+
+    }
+
+    protected void Page_Load(object sender, EventArgs e) {
+        try {
+            //cookie_id must be the last parameter on the URL in order to try and grab it.
+            //Can't use Request.QueryString because of the & within the cookie parameter.
+            //The cookie_id must also be URI encoded in order for the api request to be made properly.
+            var pars = Request.QueryString.ToString().Split('=');
+            string cookieid = pars.Last();
+
+            if (String.IsNullOrEmpty(cookieid)) {
+                //lblResult.Text = "Could not find a cookie id to search with";
+                return;
+            }
+            //Need to make a call to oauth in order to get access token
+            //You have to use clientid and secret of person who has the rights. You can find this in LaunchPoints
+            var responseValue = getResponse("identity/oauth/token?", "grant_type=client_credentials&client_id=862203c7-279f-49c5-9764-7cf33acd78c4&client_secret=mTIWCmlHHFdNbILSzMF6UnA218LaWnp3");
+
+            //Converting the JSON object so we can grab the access token out of it.
+            var jsonSerializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            var jsonDes = jsonSerializer.Deserialize < Marketo_Auth > (responseValue.ToString());
+
+            access_token = jsonDes.Access_Token.ToString();
+
+            //Once we have the access token, we can make a call to get lead information. 
+            //We can convert this JSON object too if we want to grab any particular information out of it.
+            var marketoFields = "&fields=email,firstName,lastName,formCount,company,phone,country,Type_of_Organization__c,Level__c,Functional_Area__c,Type_of_Organization__c,Size_Number_of_Facilities__c,Size_Number_of_Beds__c,Zip_Postal_Code__c,optionalPhoneNumber,Goals__c,otherGoals,New_Timeline__c,Patient_Accounting_System__c,Gross_AR_Days__c,Budget__c,Pending_RFI_RFP__c,Time_to_Call__c,Contact_me_Details__c,Interest_Area__c,Open_RFP_RFI__c,RFP_RFI_Document__c,RFP_RFI_Due_Date__c,RFP_RFI_Alternate_Contact__c,unsubscribed,ContactUsType";
+            responseValue = getResponse("rest/v1/leads.json?", "access_token=" + access_token + "&filterType=cookie&filterValues=" + cookieid + marketoFields);
+            //lblResult.Text += responseValue.ToString();
+            Response.Write(responseValue.ToString());
+        } catch (Exception ex) {
+            //lblResult.Text = ex.ToString();
+        }
+    }
+</script>

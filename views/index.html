@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>mkto</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="MedAssets is a healthcare performance improvement company focuses on enhancing financial and operational systems for providers so they can better serve their communities!" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="icon" type="image/png" href="//pbiwebprod.blob.core.windows.net/webassets/images/favicon.png">
+
+    <!--  <![endif]  -->
+    <!--  [if lt IE 8]> 
+
+██████╗  ██████╗  ██████╗ ████████╗███████╗████████╗██████╗  █████╗ ██████╗ 
+██╔══██╗██╔═══██╗██╔═══██╗╚══██╔══╝██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗
+██████╔╝██║   ██║██║   ██║   ██║   ███████╗   ██║   ██████╔╝███████║██████╔╝
+██╔══██╗██║   ██║██║   ██║   ██║   ╚════██║   ██║   ██╔══██╗██╔══██║██╔═══╝ 
+██████╔╝╚██████╔╝╚██████╔╝   ██║   ███████║   ██║   ██║  ██║██║  ██║██║     
+╚═════╝  ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝   
+
+<link href="http://go.medassets.com/rs/099-EMG-811/images/bootstrap-ie7.css" rel="stylesheet">
+
+███████╗ ██████╗ ██████╗     ██╗███████╗ ███████╗ 
+██╔════╝██╔═══██╗██╔══██╗    ██║██╔════╝ ╚════██║
+█████╗  ██║   ██║██████╔╝    ██║█████╗█████╗ ██╔╝
+██╔══╝  ██║   ██║██╔══██╗    ██║██╔══╝╚════╝██╔╝ 
+██║     ╚██████╔╝██║  ██║    ██║███████╗    ██║  
+╚═╝      ╚═════╝ ╚═╝  ╚═╝    ╚═╝╚══════╝    ╚═╝  
+
+     <![endif]  -->
+
+</head>
+<style>
+    @import url("http://go.medassets.com/rs/099-EMG-811/images/ff-milo-web.css");
+    body {
+        font-family: ff-milo-web, sans-serif;
+        background: #fff;
+    }
+    
+    .jumbotron {
+        padding: 0px;
+        height: 100vh;
+        background: url('http://go.medassets.com/rs/099-EMG-811/images/babyJoe-Hero.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    .headLine {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        text-transform: capitalize;
+        font-size: 75px;
+        padding: 150px 0px 50px 0px;
+    }
+    
+    .callOutContainer {
+        color: #fff;
+    }
+    
+    .imageOverlay {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .5);
+    }
+    
+    .marketing {
+        /* height: 100vh; */
+    }
+    
+    .navbar {
+        margin: 0px;
+    }
+    
+    .centerThisImage {
+        width: 55%;
+        height: 100%;
+        margin: 0 auto;
+        margin-top: 15px;
+        margin-bottom: 50px;
+    }
+    
+    .vbaHeader {
+        color: rgba(0, 157, 220, .67);
+        font-size: 37px;
+        font-weight: 700;
+        text-align: center;
+    }
+    
+    .bigRed {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        font-style: italic;
+    }
+</style>
+
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">newCo</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Patient Access</a></li>
+                            <li><a href="#">Revenue Cycle Management</a></li>
+                            <li><a href="#">Revenue Cycle Technology</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">Request a Demo</a></li>
+                            <li><a href="#">Request A Proposal </a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Default</a></li>
+                    <li><a href="#">HBS</a></li>
+                    <li class="active"><a href="#">LTQ <span class="sr-only">(current)</span></a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <div class="imageOverlay">
+            <div class="container callOutContainer">
+
+                <h1 class="headLine">Marketo Tests</h1>
+                <p>How can your business office do more with limited resources?</p>
+
+                <p>
+                    <a class="btn btn-primary btn-lg" href="https://www.google.com/?gws_rd=ssl" target="_blank" role="button">Learn more &raquo;</a>
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container marketing">
+
+        <!-- START THE FEATURETTES -->
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">What happens to the missing 50% of underpayment discrepancies?<br><span class="text-muted">9 ways to stop write-offs and payment discrepancies</span></h2>
+                <p class="lead">“To keep their hospitals solvent, most CFOs have no choice but to leverage next-generation financial system solutions, including software and outsourced services,” reports Doug Brown, the managing partner for Black Book.</p>
+            </div>
+
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive center-block" src="http://go.medassets.com/rs/099-EMG-811/images/RB-CO-2-3-2.png" alt="9 ways to stop write-offs and payment discrepancies">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 col-md-push-5">
+                <h2 class="featurette-heading">What’s holding you back from outsourcing?<br><span class="text-muted">Debunking 4 common myths of revenue cycle outsourcing</span></h2>
+                <p class="lead">What are the leading sources of underpayments your hospital suffers from? If close to half of payment discrepancies are due to payor underpayment, how much cash are you missing out on?</p>
+
+            </div>
+            <div class="col-md-5 col-md-pull-7">
+                <img class="featurette-image img-responsive center-block" src="http://go.medassets.com/rs/099-EMG-811/images/N-CO-4-1-1.png" alt="Debunking 4 common myths of revenue cycle outsourcing">
+            </div>
+        </div>
+        <hr class="featurette-divider">
+    </div>
+
+    <div class="container bigRed">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>The U.S. healthcare industry is rapidly evolving toward a new business model – one that rewards providing quality care at the lowest possible cost – with an emphasis on value over volume.
+                </h2>
+                <h2>
+Even though the pace of change will vary in each market, now is the time for healthcare organizations to assess their level of readiness and create a strategic response. Making this shift will not be easy, and following a strategic framework is needed to succeed.
+                </h2>
+                <h2>
+MedAssets can combine strategic market insight with rapid operational execution to help providers sustainably serve the needs of their communities as they evolve in a changing healthcare landscape.</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- /END THE FEATURETTES -->
+    <div class="container ">
+        <!-- Example row of columns -->
+
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="vbaHeader">Operational Efficiency</h2>
+                <center>
+                    <div class="icon1">
+                        <a href="https://www.sg2.com/" target="_blank">
+                            <img class="centerThisImage" src="http://go.medassets.com/rs/099-EMG-811/images/efficiency.png" />
+                        </a>
+                    </div>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </center>
+
+            </div>
+            <div class="col-md-4">
+                <h2 class="vbaHeader">Cost Management</h2>
+                <center>
+                    <div class="icon2">
+                        <a href="http://www.medassets.com/solutions/align-clinical-delivery?CO=A-CO-VBC&LS=Website-MA&LSP=VBC&LSC=A-CO-VBC&PS=VBC" target="_blank">
+                            <img class="centerThisImage" src="http://go.medassets.com/rs/099-EMG-811/images/cost.png" />
+                        </a>
+                    </div>
+
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </center>
+            </div>
+            <div class="col-md-4">
+                <h2 class="vbaHeader">Revenue Management</h2>
+                <center>
+                    <div class="icon5">
+                        <!-- onclick="imgLink5();" -->
+                        <a href="http://www.medassets.com/solutions/improve-revenue-performance?CO=A-CO-VBC&LS=Website-MA&LSP=VBC&LSC=A-CO-VBC&PS=VBC" target="_blank">
+                            <img class="centerThisImage" src="http://go.medassets.com/rs/099-EMG-811/images/revenue.png" />
+                        </a>
+                    </div>
+
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js "></script>
+
+    <script type="text/javascript" src="//munchkin.marketo.net//munchkin-beta.js"></script>
+    <script>
+        $(function () {
+            console.log("ready!");
+
+            //Function to read value of a cookie 
+            function readCookie(name) {
+                var cookiename = name + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(cookiename) == 0) return c.substring(cookiename.length, c.length);
+                }
+                return null;
+            }
+
+            //Call readCookie function to get value of user's Marketo cookie
+            // console.log('This is the value before "replace": ' + readCookie('_mkto_trk'));
+            // var valueOfCookie = readCookie('_mkto_trk').replace("&", "%26");
+            // console.log('This is the value after "replace": ' + valueOfCookie);
+
+            //  $('.headLine').text(valueOfCookie);
+
+
+            var _mkto_trk = 'id:099-EMG-811%26token:_mch-medassets.com-1456431034264-21713';
+            var mktoInfo = {
+                name: "LTQ",
+                mktoID: 'id:099-EMG-811%26token:_mch-medassets.com-1456431034264-21713'
+                    // mktoID: valueOfCookie.replace('127.0.0.1', 'medassets.com')
+            };
+
+            $.post('http://ltq.herokuapp.com/', mktoInfo, function (data) {
+
+                console.log('*----------*\n');
+                console.log(data);
+                console.log('*----------*');
+                console.log(JSON.stringify(data));
+                console.log('*----------*');
+
+                var mkt_obj = data[0];
+
+                for (var key in mkt_obj) {
+                    //                    console.log('mkt_obj Key: ' + key);
+                    //                    console.log('mkt_obj Value: ' + mkt_obj[key]);
+                    //                    console.log('  '); 
+                }
+
+                var id = mkt_obj.id;
+                var lastName = mkt_obj.lastName;
+                var phone = mkt_obj.phone;
+                var Functional_Area__c = mkt_obj.Functional_Area__c;
+                var email = mkt_obj.email;
+                var company = mkt_obj.company;
+                var Level__c = mkt_obj.Level__c;
+                var firstName = mkt_obj.firstName;
+                var country = mkt_obj.country;
+
+                $('.headLine').text(company.toLowerCase());
+
+            });
+
+            $.ajax({
+                url: 'http://ltq.herokuapp.com/',
+                data: mktoInfo,
+                contentType: 'application/json',
+                complete: function (data) {
+                    console.log(data);
+                }
+            });
+
+            //        Munchkin.init('099-EMG-811');
+            //        Munchkin.createTrackingCookie();
+            //        mktoMunchkinFunction('visitWebPage', {
+            //            url: 'http:/mkto/tests',
+            //            params: 'ops=black&dev=LTQ' 
+            //        });
+
+            //        Munchkin.init('099-EMG-811', {
+            //            customName: 'LTQ',
+            //            wsInfo: 'j1RR'
+            //        });
+        });
+    </script>
+</body>
+<!-- Brendan Carr Full Stack Web Devloper Direct: 678.366.6772 Exclaimer Signature ver.1.x -->
+
+</html>

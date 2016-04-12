@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+</head>
+
+<body>
+    <form id="mktoForm_114"></form>
+    <script type="text/javascript">
+        var _mkto_trk = $.cookie("_mkto_trk");
+        var mkt_usr;
+        $.get("http://www.medassets.com/Widgets/Marketo_req_prod.aspx", {
+                mkto_cookie: _mkto_trk
+            }).done(function (data) {
+                console.log(data);
+                var mkt_obj = jQuery.parseJSON(data);
+                var status = mkt_obj.success;
+                console.log("API Repsonse :" + status);
+                if ($.trim(status) == "true") {
+                    var mkt_array = mkt_obj.result;
+                    console.log(mkt_array);
+                    mkt_usr = mkt_array[0]
+                    console.log(mkt_usr);
+                }
+            })
+            .always(function () {
+                MktoForms2.loadForm("//app-ab09.marketo.com", "099-EMG-811", 114, function (form) {
+                    // from here we have access to the form object and can call its methods.
+                    form.onValidate(function () {
+                        var emailElem = form.getFormElem().find("#Email");
+                        var email = document.getElementById('Email').value;
+                        var atpos = email.indexOf("@");
+                        var dotpos = email.lastIndexOf(".");
+                        if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) {
+                            form.submittable(false);
+                            form.showErrorMessage("Must be a valid email. <span class='mktoErrorDetail'>example@yourdomain.com</span>", emailElem);
+                        } else
+                            form.submittable(true);
+                    });
+
+
+                    if (mkt_usr != undefined) {
+                        form.vals({
+                            "Email": mkt_usr.email,
+                            "FirstName": mkt_usr.firstName,
+                            "LastName": mkt_usr.lastName,
+                            "formCount": mkt_usr.formCount,
+                            "Phone": mkt_usr.phone,
+                            "Country": mkt_usr.country,
+                            "Type_of_Organization__c": mkt_usr.Type_of_Organization__c,
+                            "Company": mkt_usr.company,
+                            "Level__c": mkt_usr.Level__c,
+                            "Functional_Area__c": mkt_usr.Functional_Area__c,
+                            "Type_of_Organization__c": mkt_usr.Type_of_Organization__c,
+                            "Size_Number_of_Facilities__c": mkt_usr.Size_Number_of_Facilities__c,
+                            "Size_Number_of_Beds__c": mkt_usr.Size_Number_of_Beds__c,
+                            "Zip_Postal_Code__c": mkt_usr.Zip_Postal_Code__c,
+                            "optionalPhoneNumber": mkt_usr.optionalPhoneNumber,
+                            "Goals__c": mkt_usr.Goals__c,
+                            "otherGoals": mkt_usr.otherGoals,
+                            "New_Timeline__c": mkt_usr.New_Timeline__c,
+                            "Patient_Accounting_System__c": mkt_usr.Patient_Accounting_System__c,
+                            "Gross_AR_Days__c": mkt_usr.Gross_AR_Days__c,
+                            "Budget__c": mkt_usr.Budget__c,
+                            "Pending_RFI_RFP__c": mkt_usr.Pending_RFI_RFP__c,
+                            "Time_to_Call__c": mkt_usr.Time_to_Call__c,
+                            "Contact_me_Details__c": mkt_usr.Contact_me_Details__c,
+                            "Interest_Area__c": mkt_usr.Interest_Area__c,
+                            "Open_RFP_RFI__c": mkt_usr.Open_RFP_RFI__c,
+                            "RFP_RFI_Document__c": mkt_usr.RFP_RFI_Document__c,
+                            "RFP_RFI_Due_Date__c": mkt_usr.RFP_RFI_Due_Date__c,
+                            "RFP_RFI_Alternate_Contact__c": mkt_usr.RFP_RFI_Alternate_Contact__c,
+                            "unsubscribed": mkt_usr.unsubscribed
+                        });
+                    } else {
+                        form.vals();
+                    }
+                    form.onSuccess(function (values, followUpUrl) {
+                        document.location.href = "http://www.medassets.com/contact/thank-you/";
+                        return false;
+                    });
+                });
+            });
+    </script>
+</body>
+
+</html>
