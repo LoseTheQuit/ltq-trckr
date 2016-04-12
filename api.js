@@ -12,6 +12,8 @@ var app = express();
 var mktoCookie = '';
 var multer = require('multer');
 
+app.use(express.static('static'));
+
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({
@@ -51,9 +53,10 @@ app.get('/', function (req, res) {
 
     // tokenRequest(req.query.mktoID);
 
-    var html = fs.readFileSync('views/index.html');
+    var html = fs.readFileSync('static/views/index.html');
     // var html = '<p>' + realReqBody +  '</p>'; 
     res.end(html);
+
 });
 
 app.set('port', (process.env.PORT || 3000));
