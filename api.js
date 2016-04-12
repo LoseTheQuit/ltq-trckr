@@ -137,12 +137,14 @@ function apiCall(apiCallUrl) {
     console.log('*********************');
 
     client.get(apiCallUrl, function (data, response) {
+
         //        for (var key in data) {
         //            console.log('---------------------');
         //            console.log('apiCallUrl Key: ' + key);
         //            console.log('apiCallUrl Value: ' + data[key]);
         //            console.log('---------------------');
         //        } 
+
         console.log('= == == == == == == == =' + '\n');
 
         console.log('>------------------------------------<');
@@ -153,6 +155,7 @@ function apiCall(apiCallUrl) {
         console.log('\n');
 
         var forIn = data;
+
         for (var key in data) {
             console.log('|||||||||||||||||||');
             console.log('data Key: ' + key);
