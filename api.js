@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({
 var brendanCarr = 'id:099-EMG-811%26token:_mch-medassets.com-1456431034264-21713' + '&fields=cookies,email';
 var realReqBody = null;
 
-app.post('/', function (req, res) {
+app.post('http://localhost/', function (req, res) {
 
     console.log('INCOMING POST REQUEST - Request Token');
     console.log('***');
